@@ -4,7 +4,11 @@
     align-center
   >
     <PageTitle :title="title" />
+    <v-flex>
+      <h4>{{ $t('about.title') }}</h4>
+    </v-flex>
   </v-layout>
+    
 </template>
 
 <script>

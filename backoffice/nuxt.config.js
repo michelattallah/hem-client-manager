@@ -14,7 +14,12 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Bree+Serif&display=swap'
+      }
     ]
   },
   /*
@@ -31,12 +36,14 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/i18n.js'
   ],
   /*
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxtjs/vuetify',
+  /* '@nuxtjs/vuetify', */
+    ['@nuxtjs/vuetify', {}]
   ],
   /*
   ** Nuxt.js modules
@@ -60,25 +67,7 @@ export default {
   */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    theme: {
-      dark: false,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.blue.base,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        },
-        light: {
-          primary: "#2A77A6",
-          accent: "#051E34",
-          secondary: "#F0B43E",
-        }
-      }
-    }
+    optionsPath: "./vuetify.options.js"
   },
   /*
   ** Build configuration
