@@ -52,9 +52,4 @@ export const actions = {
         context.commit('setLoading', false)
         context.commit('setClients', clients)
     },
-    async getClientSummary(context, client) {
-        const response = await this.$axios.get('/clients/' + client)
-        let summary = response.data.data;
-        context.commit('setClient', summary)
-    }
 }
