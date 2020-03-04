@@ -2,3 +2,21 @@
     border-bottom:1px solid #c3cfdd;
     padding:0 25px 25px 25px;
 }
+
+.advisor-container{
+    border-radius: 10px;
+    border:1px solid rgba(0,0,0,0.12);
+    padding:15px 10px 0 10px;
+    box-sizing: border-box;
+    transition: all 0.25s;
+    margin: 0 10px;
+  }
+  .advisor-container:hover{
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  }
+  .pagination-container{
+    display: block;
+    width: 100%;
+    border-top:1px solid #ebedf0;
+    padding-top:15px;   
+  }

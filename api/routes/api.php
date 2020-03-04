@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::prefix('/s/')->group(function () {
+Route::prefix('/backoffice/')->group(function () {
 
-    Route::post('clients' , 'ClientsController@index');
+    Route::get('clients' , 'ClientsController@index');
 
 
 });

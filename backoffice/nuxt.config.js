@@ -1,7 +1,9 @@
 import colors from 'vuetify/es5/util/colors'
+const env = require('dotenv').config()
 
 export default {
   mode: 'universal',
+  env: env.parsed,
   /*
   ** Headers of the page
   */
@@ -19,6 +21,11 @@ export default {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css?family=Bree+Serif&display=swap'
+      }
+    ],
+    script: [
+      {
+        src: "https://kit.fontawesome.com/e8c27a6e8e.js"
       }
     ]
   },
@@ -60,6 +67,8 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    // baseURL: 'http://api.wiltondev.site/public/api/backoffice'
+    baseURL: process.env.BASE_URL
   },
   /*
   ** vuetify module configuration

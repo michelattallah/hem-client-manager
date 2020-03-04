@@ -13,11 +13,29 @@ class ClientsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-       $clients = Client::get();
+       $clients = Client::isActive();
+
+       $clients = $this->filter(['initial'] , $clients , $request);
+       $clients = $clients->orderBy('created_at' , 'DESC')->paginate($request->limit);
+
        return ClientsResource::collection($clients);
     }
+
+
+    /**
+     * Filter Clients
+     */
+    protected function filter($filters = [] , $clients , Request $request){
+        foreach ($filters as $filter) {
+            $class = "App\\Filters\\Clients\\" . ucwords($filter);
+            $clients = $class::filter($clients , $request);
+        }
+      
+        return $clients;
+    }
+
 
     /**
      * Show the form for creating a new resource.
