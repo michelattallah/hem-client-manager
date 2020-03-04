@@ -1,35 +1,52 @@
 <template>
-  <v-layout
-    justify-center
-    align-center
-    row
-    wrap
-  >
+  <div>
+  <v-layout justify-center align-center row wrap>
     <PageTitle :title="title" />
+ </v-layout>
 
-    <v-flex xs12 lg12 pt-5>
-      
-      <LettersFilter @filter="filterClients" :selected="filter.letter"  />
+    <v-layout>
+      <v-flex lg8 md8 sm12 xs12 class="border-right-gery" align-stretch style="min-height:78vh">
 
-    </v-flex>
+          <v-layout>
+            <v-flex xs12 py-5 class="border-bottom-gery">
+              <LettersFilter @filter="filterClients" :selected="filter.letter"  />
+            </v-flex>
+          </v-layout>
 
-    <v-layout row wrap v-if="clients.length && !loading">
-        <v-flex lg4 md4 sm12 xs12 class="my-4" v-for="client in clients" :key="client.id">
-            <Client :client="client" />
-        </v-flex>
+          <v-layout row v-if="clients.length && !loading" pa-5>
+              <v-flex xs12 >
+                  <v-list dense pa-5>
+                    <Client v-for="client in clients" :key="client.id" :client="client" />
+                  </v-list>
+              </v-flex>
+          </v-layout>
+          
+          <Loader v-if="loading" />
+          
+          <v-layout v-if="!clients.length && !loading" pa-5>
+            <v-flex xs12  class="my-4"> 
+                <Empty />
+            </v-flex>
+          </v-layout>
+          
+          <Pagination v-if="pagination" :length="pagination.last_page" :meta="pagination" @paginate="paginate"/>
+
+      </v-flex>
+
+      <v-flex lg4 md4 sm12 xs12>
+          <v-layout>
+            <v-flex xs12 py-4 class="border-bottom-gery" align="justify-end">
+              <div style="margin:2px 0" class="justify-end pr-3">
+                <v-btn depressed meduim color="success" class="pull-right">+ Add New</v-btn>
+              </div>
+            </v-flex>
+          </v-layout>
+
+      </v-flex>
 
     </v-layout>
-
-    <Loader v-if="loading" />
-
-     <v-layout v-if="!clients.length && !loading">
-          <v-flex xs10 offset-xs1  class="my-4"> 
-              <Empty />
-          </v-flex>
-      </v-layout>
-      <Pagination v-if="pagination" :length="pagination.last_page" :meta="pagination" @paginate="paginate"/>
      
-  </v-layout>
+  </div>
 </template>
 
 <script>

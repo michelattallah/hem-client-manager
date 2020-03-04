@@ -2,7 +2,7 @@ export const state = () => ({
     clients: [],
     loading:false,
     links:null,
-    pagination:null
+    pagination: null
 })
 
 export const getters = {
@@ -31,7 +31,7 @@ export const mutations = {
     },
     setLinks(state, links) {
         state.links = links
-    } 
+    }
 }
 export const actions = {
     async loadClients(context, filter) {
@@ -51,5 +51,10 @@ export const actions = {
         context.commit('setLinks', links) 
         context.commit('setLoading', false)
         context.commit('setClients', clients)
+    },
+    async getClientSummary(context, client) {
+        const response = await this.$axios.get('/clients/' + client)
+        let summary = response.data.data;
+        context.commit('setClient', summary)
     }
 }

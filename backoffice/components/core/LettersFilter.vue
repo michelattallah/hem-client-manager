@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex alpha-container justify-center align-center">
+    <div class="d-flex alpha-container">
         <ul class="alpha-list d-flex  justify-center align-center">
             <li class="text-uppercase" :class="{'active': selected == letter}" v-for="letter in letters" :key="letter" @click="filter(letter)">{{letter}}</li>
         </ul>

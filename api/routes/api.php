@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 Route::prefix('/backoffice/')->group(function () {
 
     Route::get('clients' , 'ClientsController@index');
+    Route::get('clients/{client}' , 'ClientsController@show');
 
 
 });

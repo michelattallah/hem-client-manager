@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Client;
+use Illuminate\Http\Request;
+use App\Http\Resources\Clients\ClientResource;
 use App\Http\Resources\Clients\ClientsResource;
 
 class ClientsController extends Controller
@@ -64,9 +65,9 @@ class ClientsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Client $client)
     {
-        //
+        return new ClientResource($client);
     }
 
     /**

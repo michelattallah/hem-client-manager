@@ -20,7 +20,7 @@
     </v-app-bar>
     
     <v-content>
-      <v-container>
+      <v-container  style="padding:0">
         <nuxt />
       </v-container>
     </v-content>
