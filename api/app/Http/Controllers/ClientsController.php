@@ -56,7 +56,18 @@ class ClientsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request , [
+            'name'          => 'required',
+            'description'   => 'required',
+            'logo'          => 'required',
+        ]);
+        $client = Client::create([
+            'name'          => $request->name,
+            'description'   => $request->description,
+            'logo'          => $request->logo['path'],
+            ]);
+        
+        return new ClientResource($client);
     }
 
     /**

@@ -28,10 +28,10 @@ export default {
     .alpha-list li{
         display: inline-block;
         padding: 0;
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        border-radius: 30px;
+        width: 22px;
+        height: 22px;
+        line-height: 22px;
+        border-radius: 22px;
         text-align: center;
         font-size: 13px;
         margin: 0 1px;

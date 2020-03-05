@@ -5,7 +5,7 @@
  </v-layout>
 
     <v-layout>
-      <v-flex lg8 md8 sm12 xs12 class="border-right-gery" align-stretch style="min-height:78vh">
+      <v-flex lg7 md7 sm12 xs12 class="border-right-gery" align-stretch style="min-height:78vh">
 
           <v-layout>
             <v-flex xs12 py-5 class="border-bottom-gery">
@@ -33,12 +33,18 @@
 
       </v-flex>
 
-      <v-flex lg4 md4 sm12 xs12>
+      <v-flex lg5 md5 sm12 xs12>
           <v-layout>
-            <v-flex xs12 py-4 class="border-bottom-gery" align="justify-end">
+            <v-flex xs12 py-3 class="border-bottom-gery" align="justify-end">
               <div style="margin:2px 0" class="justify-end pr-3">
-                <v-btn depressed meduim color="success" class="pull-right">+ Add New</v-btn>
+                <v-btn depressed meduim color="primary" class="pull-right">+ Add New</v-btn>
               </div>
+            </v-flex>
+          </v-layout>
+
+          <v-layout>
+            <v-flex xs12 pa-2>
+              <AddClient />
             </v-flex>
           </v-layout>
 
@@ -57,6 +63,7 @@ import Pagination from '@/components/core/Pagination';
 import Empty from '@/components/core/Empty';
 
 import Client from '@/components/clients/Client'
+import AddClient from '@/components/clients/AddClient'
 import {mapActions,MapGetters,MapMutations, mapGetters} from 'vuex'
 
 
@@ -95,7 +102,8 @@ export default {
     Client,
     Loader,
     Pagination,
-    Empty
+    Empty,
+    AddClient
   },
   methods:{
     ...mapActions({

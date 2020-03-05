@@ -17,7 +17,10 @@ Route::prefix('/backoffice/')->group(function () {
 
     Route::get('clients' , 'ClientsController@index');
     Route::get('clients/{client}' , 'ClientsController@show');
-
+    Route::post('clients' , 'ClientsController@store');
+    
+    Route::post('upload' , 'UploadController@upload');
+    Route::post('destroy' , 'UploadController@destroy');
 
 });
 
