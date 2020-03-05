@@ -14,7 +14,9 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "apexcharts": "^3.16.1",
     "nuxt": "^2.0.0",
+    "vue-apexcharts": "^1.5.2",
     "vue-cli-plugin-vuetify-preset-shrine": "^1.0.3",
     "vue-i18n": "^8.15.4"
   },

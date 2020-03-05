@@ -65,6 +65,7 @@ class ClientsController extends Controller
             'name'          => $request->name,
             'description'   => $request->description,
             'logo'          => $request->logo['path'],
+            'services'      => $request->services,
             ]);
         
         return new ClientResource($client);

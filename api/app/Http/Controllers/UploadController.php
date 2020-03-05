@@ -22,7 +22,7 @@ class UploadController extends Controller
 
         $file = Storage::putFileAs( 'logos' , $request->file , $fileName);
 
-        $path  = env('UPLOAD_URL')."/$fileName" ; 
+        $path  = env('AWS_URL')."$fileName" ; 
 
         return Response::json([
             'path'      => $path,

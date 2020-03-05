@@ -175,6 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // Charts Service Provider
+        App\Providers\ChartsServiceProvider::class,
+
     ],
 
     /*
@@ -225,6 +228,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        
+        
+        //Charts Facade
+        'Charts' => App\Facades\Charts::class,
 
     ],
 

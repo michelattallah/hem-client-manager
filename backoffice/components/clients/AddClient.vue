@@ -33,6 +33,19 @@
           </v-col>
           
           <v-col cols="12">
+            <v-select
+                v-model="form.services"
+              :items="Services"
+              item-text="label"
+              item-value="value"
+              label="Select Services"
+              multiple
+              dense
+              outlined
+          ></v-select>
+          </v-col>
+
+          <v-col cols="12">
             <Uploader 
               :options="{
                   label: 'Client\'s Logo',
@@ -63,6 +76,7 @@
 </template>
 <script>
 import Uploader from '@/components/core/Uploader';
+import {Services} from '@/data/services';
 import {mapActions,MapGetters,MapMutations, mapGetters} from 'vuex'
 
 export default {
@@ -72,10 +86,12 @@ export default {
   data() {
     return {
       valid: true,
+      Services,
       form: {
         name: '',
         description:'',
-        logo:{}
+        logo:{},
+        services:[]
       },
       rules: {
         required: value => !!value || 'This field is required.',
@@ -98,6 +114,7 @@ export default {
         this.form.name= ' '
         this.form.description =' '
         this.form.logo={}
+        this.form.services=[]
         // Reset the Uploader
         this.$refs.uploader.reset();
       }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Resources\Clients;
 
+use App\Http\Resources\Clients\LogsResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Charts;
 
 class ClientsResource extends JsonResource
 {
@@ -17,8 +19,10 @@ class ClientsResource extends JsonResource
         return [
             'id'            => $this->id,
             'name'          => $this->name,
-            'logo'          => $this->logo,
+            'logo'          => $this->clientLogo,
             'description'   => $this->description,
+            'services'      => $this->services,
+           /*  'logs'          => Charts::logs($this->logs()->pluck('service' , 'data' , 'date')->toArray()) */
         ];
     }
 }

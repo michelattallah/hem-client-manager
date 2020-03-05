@@ -12,10 +12,10 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_workbox_77783967 from 'nuxt_plugin_workbox_77783967' // Source: .\\workbox.js (mode: 'client')
-import nuxt_plugin_nuxticons_b42205c6 from 'nuxt_plugin_nuxticons_b42205c6' // Source: .\\nuxt-icons.js (mode: 'all')
-import nuxt_plugin_plugin_395e1a0c from 'nuxt_plugin_plugin_395e1a0c' // Source: .\\vuetify\\plugin.js (mode: 'all')
-import nuxt_plugin_axios_3e5b49ea from 'nuxt_plugin_axios_3e5b49ea' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_workbox_7b0c0a07 from 'nuxt_plugin_workbox_7b0c0a07' // Source: .\\workbox.js (mode: 'client')
+import nuxt_plugin_nuxticons_175c2f06 from 'nuxt_plugin_nuxticons_175c2f06' // Source: .\\nuxt-icons.js (mode: 'all')
+import nuxt_plugin_plugin_7b9c556c from 'nuxt_plugin_plugin_7b9c556c' // Source: .\\vuetify\\plugin.js (mode: 'all')
+import nuxt_plugin_axios_0a61d3ab from 'nuxt_plugin_axios_0a61d3ab' // Source: .\\axios.js (mode: 'all')
 import nuxt_plugin_i18n_1fba523a from 'nuxt_plugin_i18n_1fba523a' // Source: ..\\plugins\\i18n.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -45,7 +45,7 @@ Vue.component(Nuxt.name, Nuxt)
 
 Vue.use(Meta, {"keyName":"head","attribute":"data-n-head","ssrAttribute":"data-n-head-ssr","tagIDKeyName":"hid"})
 
-const defaultTransition = {"name":"page","mode":"out-in","appear":false,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
+const defaultTransition = {"name":"page","mode":"out-in","appear":true,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
 
 async function createApp (ssrContext) {
   const router = await createRouter(ssrContext)
@@ -53,10 +53,6 @@ async function createApp (ssrContext) {
   const store = createStore(ssrContext)
   // Add this.$router into store actions/mutations
   store.$router = router
-
-  // Fix SSR caveat https://github.com/nuxt/nuxt.js/issues/3757#issuecomment-414689141
-  const registerModule = store.registerModule
-  store.registerModule = (path, rawModule, options) => registerModule.call(store, path, rawModule, Object.assign({ preserveState: process.client }, options))
 
   // Create Root instance
 
@@ -173,20 +169,20 @@ async function createApp (ssrContext) {
 
   // Plugin execution
 
-  if (process.client && typeof nuxt_plugin_workbox_77783967 === 'function') {
-    await nuxt_plugin_workbox_77783967(app.context, inject)
+  if (process.client && typeof nuxt_plugin_workbox_7b0c0a07 === 'function') {
+    await nuxt_plugin_workbox_7b0c0a07(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_nuxticons_b42205c6 === 'function') {
-    await nuxt_plugin_nuxticons_b42205c6(app.context, inject)
+  if (typeof nuxt_plugin_nuxticons_175c2f06 === 'function') {
+    await nuxt_plugin_nuxticons_175c2f06(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_plugin_395e1a0c === 'function') {
-    await nuxt_plugin_plugin_395e1a0c(app.context, inject)
+  if (typeof nuxt_plugin_plugin_7b9c556c === 'function') {
+    await nuxt_plugin_plugin_7b9c556c(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_3e5b49ea === 'function') {
-    await nuxt_plugin_axios_3e5b49ea(app.context, inject)
+  if (typeof nuxt_plugin_axios_0a61d3ab === 'function') {
+    await nuxt_plugin_axios_0a61d3ab(app.context, inject)
   }
 
   if (typeof nuxt_plugin_i18n_1fba523a === 'function') {

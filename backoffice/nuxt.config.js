@@ -2,7 +2,7 @@ import colors from 'vuetify/es5/util/colors'
 const env = require('dotenv').config()
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
   env: env.parsed,
   /*
   ** Headers of the page
@@ -43,7 +43,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/i18n.js'
+    '~/plugins/i18n.js',
+    /* { src: '~/plugins/vue-apexchart.js', ssr: false }, */
   ],
   /*
   ** Nuxt.js dev-modules

@@ -1,33 +1,43 @@
 <template>
     <div>
-        <Loader v-if="loading" />
+        
+        <Logs :id="`client` + client.id" ref="chart" />
+
+        <!-- <Loader v-if="loading" />
+
         <div v-else>
-            {{clientSummary}}
-        </div>
+            <Logs :id="`client` + client.id" ref="chart" />
+        </div> -->
     </div>
 </template>
 
 <script>
 import {mapActions,MapGetters,MapMutations, mapGetters} from 'vuex'
 import Loader from '@/components/core/Loader'
+import Logs from '@/components/charts/Logs'
 
 export default {
     props:['client' , 'show'],
     data() {
         return {
             loading:false,
-            clientSummary:{}
+            clientSummary:{},
+            log: 'chart'
         }
     },
     watch: {
         show(value){
             if(value){
                 this.getClientSummary()
+                this.$refs.chart.renderChart(this.clientSummary);
+            }else{
+                this.$refs.chart.destroyChart();
             }
         }
     },
     components: {
-        Loader
+        Loader,
+        Logs
     },
     methods: {
         async getClientSummary(){
