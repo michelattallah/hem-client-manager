@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+ 
         <Logs :id="`client` + client.id" ref="chart" />
 
         <!-- <Loader v-if="loading" />
@@ -29,10 +29,12 @@ export default {
         show(value){
             if(value){
                 this.getClientSummary()
-                this.$refs.chart.renderChart(this.clientSummary);
             }else{
                 this.$refs.chart.destroyChart();
             }
+        },
+        clientSummary(value){
+            this.$refs.chart.renderChart(value.logs);
         }
     },
     components: {

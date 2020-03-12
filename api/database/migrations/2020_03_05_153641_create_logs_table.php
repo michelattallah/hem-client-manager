@@ -18,7 +18,7 @@ class CreateLogsTable extends Migration
             $table->unsignedBigInteger('client_id');
             $table->string('service');
             $table->text('data');
-            $table->dateTime('date');
+            $table->text('date');
             $table->timestamps();
 
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');

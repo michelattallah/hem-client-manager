@@ -34,5 +34,6 @@ class Client extends Model
     public function logs(){
         return $this->hasMany(Log::class);
     }
+
     
 }

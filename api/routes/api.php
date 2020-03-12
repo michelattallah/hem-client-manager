@@ -19,6 +19,10 @@ Route::prefix('/backoffice/')->group(function () {
     Route::get('clients/{client}' , 'ClientsController@show');
     Route::post('clients' , 'ClientsController@store');
     
+    
+    Route::get('logs/{client}' , 'LogsController@show');
+
+
     Route::post('upload' , 'UploadController@upload');
     Route::post('destroy' , 'UploadController@destroy');
 

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
-
+use Arr;
 class LogsController extends Controller
 {
     /**
@@ -13,7 +14,7 @@ class LogsController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -43,9 +44,19 @@ class LogsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Client $client)
     {
-        //
+        $logs = $client->logs->toArray();
+        
+        $services =  array_unique(Arr::pluck($logs, 'service'));
+        $dates = array_unique(Arr::pluck($logs, 'date'));
+
+        dump($services);
+        dump($dates);
+
+       
+        
+        dd($logs);
     }
 
     /**

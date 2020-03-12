@@ -4,8 +4,6 @@
     <PageTitle :title="title" />
  </v-layout>
 
-   <!--    <Logs /> -->
-
     <v-layout>
       <v-flex lg7 md7 sm12 xs12 class="border-right-gery" align-stretch style="min-height:78vh">
 
@@ -66,7 +64,7 @@ import Empty from '@/components/core/Empty';
 
 import Client from '@/components/clients/Client'
 import AddClient from '@/components/clients/AddClient'
-import Logs from '@/components/charts/Logs'
+
 import {mapActions,MapGetters,MapMutations, mapGetters} from 'vuex'
 
 export default {
@@ -106,8 +104,7 @@ export default {
     Loader,
     Pagination,
     Empty,
-    AddClient,
-    Logs
+    AddClient
   },
   methods:{
     ...mapActions({

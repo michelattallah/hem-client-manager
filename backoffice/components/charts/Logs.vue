@@ -26,9 +26,8 @@ export default {
     },
     methods: {
         renderChart(data) {
-            console.lgo(data)
             var options = {
-                series: this.data.original.series,
+                series: data.series,
                 chart: {
                 height: 350,
                 type: 'line',
@@ -40,7 +39,7 @@ export default {
                     enabled: true
                 },
                 stroke: {
-                    width: [1],
+                    width: 2,
                     curve: 'straight',
                     dashArray: [0]
                 },
@@ -49,43 +48,43 @@ export default {
                     align: 'left'
                 },
                 legend: {
-                tooltipHoverFormatter: function(val, opts) {
-                    return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
-                }
+                    tooltipHoverFormatter: function(val, opts) {
+                        return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
+                    }
                 },
                 markers: {
-                size: 0,
-                hover: {
-                    sizeOffset: 6
-                }
-                },
+                    size: 0,
+                    hover: {
+                        sizeOffset: 6
+                    }
+                    },
                 xaxis: {
-                    categories: this.data.original.categories,
+                    categories: data.categories,
                 },
                 tooltip: {
-                y: [
-                    {
-                    title: {
-                        formatter: function (val) {
-                        return val + " (mins)"
+                    y: [
+                        {
+                        title: {
+                            formatter: function (val) {
+                            return val + " (leads)"
+                            }
                         }
-                    }
-                    },
-                    {
-                    title: {
-                        formatter: function (val) {
-                        return val + " per session"
+                        },
+                        {
+                        title: {
+                            formatter: function (val) {
+                            return val + " (messages)"
+                            }
                         }
-                    }
-                    },
-                    {
-                    title: {
-                        formatter: function (val) {
-                        return val;
+                        },
+                        {
+                        title: {
+                            formatter: function (val) {
+                            return val + " (minutes)";
+                            }
                         }
-                    }
-                    }
-                ]
+                        }
+                    ]
                 },
                 grid: {
                     borderColor: '#f1f1f1',

@@ -4,13 +4,14 @@ namespace App\Models;
 
 use App\Models\Client;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Log extends Model
 {
     protected $fillable = ['service' , 'data','date'];
     protected $casts = [
         'data'  => 'array',
-        'date'  => 'datetime:M Y',
+       
     ];
    
 
@@ -19,7 +20,16 @@ class Log extends Model
         return $this->belongsTo(Client::class);
     }
 
-    public static function byService($service = null)
+    public function scopeByDate(Builder $builder , $dates)
+	{
+        $builder->whereIn('date' , $dates);
+	}
+    public function scopeByService(Builder $builder , $service)
+	{
+        $builder->where('service' , $service);
+	}
+
+    /* public static function byService($service = null)
     {
         
         if ($service) {
@@ -35,5 +45,5 @@ class Log extends Model
             $allLogs[$log->service][] = $log->data;
         }
         return $allLogs;
-    }
+    } */
 }
