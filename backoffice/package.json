@@ -18,13 +18,15 @@
     "nuxt": "^2.0.0",
     "vue-apexcharts": "^1.5.2",
     "vue-cli-plugin-vuetify-preset-shrine": "^1.0.3",
-    "vue-i18n": "^8.15.4"
+    "vue-i18n": "^8.15.4",
+    "minimist": ">=1.2.2"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.11.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
     "prettier": "^1.19.1",
-    "vue-cli-plugin-vuetify-preset-reply": "~1.0.3"
+    "vue-cli-plugin-vuetify-preset-reply": "~1.0.3",
+    "minimist": ">=1.2.2"
   }
 }
